@@ -2,8 +2,10 @@ from fastapi import FastAPI
 from sqlalchemy import text
 from app.database import engine, Base
 from app.models import user 
+from app.api import auth
 
 app = FastAPI(title="Productivity OS API")
+app.include_router(auth.router)
 
 @app.on_event("startup")
 def startup():

@@ -1,17 +1,16 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    # These must match the names in your .env file
-    SECRET_KEY: str = "your_secret_key_here"
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
-    
-    # ADD THIS LINE BELOW - it fixes the current crash
-    DATABASE_URL: str = "sqlite:///./test.db" 
+    SECRET_KEY: str="1908"
+    ALGORITHM: str="HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int =30
+    # 1. Add this line so your code can read the database link from .env
+    DATABASE_URL: str="postgresql://postgres:1908@localhost:5432/productivity_os"
+
 
     class Config:
         env_file = ".env"
-        # This prevents the "extra inputs" error if you have other stuff in .env
+        # 2. Add this line to prevent the "extra inputs" crash
         extra = "ignore" 
 
 settings = Settings()

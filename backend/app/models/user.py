@@ -6,4 +6,9 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True, nullable=False)
-    hashed_password = Column(String, nullable=False)
+    password = Column(String, nullable=False)
+
+    
+    name = Column(String, nullable=True)
+    avatar = Column(String, nullable=True)
+    role = Column(String, default="user")

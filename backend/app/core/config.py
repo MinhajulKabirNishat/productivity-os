@@ -1,11 +1,11 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    SECRET_KEY: str="1908"
-    ALGORITHM: str="HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int =30
+    SECRET_KEY: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int 
     # 1. Add this line so your code can read the database link from .env
-    DATABASE_URL: str="postgresql://postgres:1908@localhost:5432/productivity_os"
+    DATABASE_URL: str
 
 
     class Config:

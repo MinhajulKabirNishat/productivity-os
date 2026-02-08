@@ -1,5 +1,8 @@
 from sqlalchemy import Column, Integer, String
 from app.database import Base
+from sqlalchemy.orm import relationship
+
+tasks = relationship("Task", back_populates="owner")
 
 class User(Base):
     __tablename__ = "users"
